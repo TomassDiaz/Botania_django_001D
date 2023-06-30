@@ -1,0 +1,14 @@
+<form enctype="multipart/form-data" method="post">
+  {% csrf_token%}
+  {% for i in form %}
+  <div class="mb-3">
+    <label for="" class="form-label">{{i.label}} </label>
+    <input type="{{i.field.widget.input_type}}" class="form-control" name="{{i.name}}" value="{{i.value | default: '' }}"/>
+
+  </div>
+  <div class="col-12 help-next">{{i.errors}}</div>
+  {% endfor %}
+
+  <input name="" id="" class="btn btn-success" type="submit" value="Enviar">
+  <a name="" id="" class="btn btn-primary" href="{% url 'catalogo' %}" role="button">Cancelar</a>
+</form>
